@@ -15,6 +15,7 @@ namespace SojaExiles
 
 		void Start()
 		{
+			Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 			open = false;
 		}
 
