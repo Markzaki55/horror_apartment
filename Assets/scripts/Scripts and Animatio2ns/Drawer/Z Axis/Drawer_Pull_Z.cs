@@ -5,52 +5,28 @@ using UnityEngine;
 namespace SojaExiles
 
 {
-	public class Drawer_Pull_Z : MonoBehaviour
+	public class Drawer_Pull_Z : MonoBehaviour,iintracatable
 	{
 
 		public Animator pull;
 		public bool open;
-		public Transform Player;
-
+	
 		void Start()
 		{
 			open = false;
 		}
 
-		void OnMouseOver()
-		{
-			{
-				if (Player)
-				{
-					float dist = Vector3.Distance(Player.position, transform.position);
-					if (dist < 10)
-					{
-						print("object name");
-						if (open == false)
-						{
-							if (Input.GetMouseButtonDown(0))
-							{
-								StartCoroutine(opening());
-							}
-						}
-						else
-						{
-							if (open == true)
-							{
-								if (Input.GetMouseButtonDown(0))
-								{
-									StartCoroutine(closing());
-								}
-							}
-
-						}
-
-					}
-				}
-
-			}
-
-		}
+		 public void Interact()
+    {
+        if (!open)
+        {
+            StartCoroutine(opening());
+        }
+        else
+        {
+            StartCoroutine(closing());
+        }
+    }
 
 		IEnumerator opening()
 		{
