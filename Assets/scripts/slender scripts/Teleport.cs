@@ -8,6 +8,7 @@ public class Teleport : MonoBehaviour
 
     [SerializeField] private Transform[] teleportTargets = null;
     [SerializeField] private DisappearOnLook objectDisappearing = null;
+    private static int randomIndexBuffer;
 
     private void Awake()
     {
@@ -23,6 +24,11 @@ public class Teleport : MonoBehaviour
         }
 
         int randomIndex = Random.Range(0, teleportTargets.Length);
+        while(randomIndex == randomIndexBuffer)
+        {
+            randomIndex = Random.Range(0, teleportTargets.Length);
+        }
+        randomIndexBuffer = randomIndex;
 
         Transform teleportTarget = teleportTargets[randomIndex];
         Vector3 newPosition = teleportTarget.position;
