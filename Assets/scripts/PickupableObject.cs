@@ -21,24 +21,24 @@ public class PickupableObject : MonoBehaviour, IPickupable
     {
         rb.isKinematic = true;
         isHeld = true;
-        holder = Camera.main.transform ;
-      transform.position = holder.position + holder.forward * 0.5f;
+        holder = Camera.main.transform  ;
     }
 
-   public void OnDrop()
-{
-    rb.isKinematic = false;
-    rb.velocity = holder.forward * 10f; 
-    transform.position = holder.position + holder.forward * dropOffset;
-    transform.rotation = holder.rotation;
-    holder = null;
-}
+    public void OnDrop()
+    {
+        rb.isKinematic = false;
+        rb.velocity = holder.forward * 5f; 
+        transform.position = holder.position + holder.forward * dropOffset;
+        transform.rotation = holder.rotation;
+        isHeld = false;
+        holder = null;
+    }
 
     void Update()
     {
         if (isHeld)
         {
-            transform.position = Camera.main.transform.position + Camera.main.transform.forward * 2f;
+            transform.position = Camera.main.transform.position + Camera.main.transform.forward * 0.8f;
             transform.rotation = Quaternion.LookRotation(transform.position - Camera.main.transform.position);
         }
     }
