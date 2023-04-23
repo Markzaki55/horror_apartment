@@ -8,6 +8,13 @@ public class Teleport : MonoBehaviour
 
     [SerializeField] private Transform[] teleportTargets = null;
     [SerializeField] private DisappearOnLook objectDisappearing = null;
+    private Camera maincam ;
+     private static int randomIndexBuffer;
+    
+    private void Start()
+    {
+        maincam = Camera.main;
+    }
 
     private void Awake()
     {
