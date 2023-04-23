@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-
 public class PlayerInteraction : MonoBehaviour
 {
     public float interactDistance = 2.0f;
@@ -30,7 +29,6 @@ public class PlayerInteraction : MonoBehaviour
             if (interactable != null)
             {
                  interactText.gameObject.SetActive(true); 
-                // interactText.transform.position = hit.point; 
                  interactText.text = "Press E to interact"; 
                 if (Input.GetKeyDown(KeyCode.E))
                 {

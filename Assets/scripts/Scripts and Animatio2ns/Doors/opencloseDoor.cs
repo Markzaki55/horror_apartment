@@ -29,6 +29,7 @@ using UnityEngine;
 			print("you are opening the door");
 			openandclose.Play("Opening");
 			open = true;
+			SoundManager.PlaySound("opendoor");
 			yield return new WaitForSeconds(.5f);
 		}
 
@@ -37,6 +38,7 @@ using UnityEngine;
 			print("you are closing the door");
 			openandclose.Play("Closing");
 			open = false;
+			SoundManager.PlaySound("closedoor");
 			yield return new WaitForSeconds(.5f);
 		}
 
