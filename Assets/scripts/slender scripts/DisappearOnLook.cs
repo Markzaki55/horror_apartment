@@ -245,7 +245,7 @@ public class DisappearOnLook : MonoBehaviour
             return;
         }
 
-        if (!hasBeenRemoved && disappearCoroutine == null)
+        if (disappearCoroutine == null)
         {
             StartDisappearing();
         }
@@ -263,29 +263,31 @@ public class DisappearOnLook : MonoBehaviour
             return;
         }
 
-        Ray ray = new Ray(cameraPosition, toObject.normalized);
+        Ray ray = new Ray(cameraPosition, Camera.main.transform.forward);
+        Debug.DrawRay(cameraPosition, Camera.main.transform.forward * maxDistance);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, maxDistance))
         {
             if (hit.collider.gameObject != gameObject)
             {
                 StopDisappearing();
                 return;
             }
+            if (!isLooking)
+            {
+                isLooking = true;
+            }
         }
 
-        if (!isLooking)
-        {
-            isLooking = true;
-        }
+
     }
 
     private IEnumerator DisappearCoroutine()
     {
         yield return new WaitForSeconds(lookTime);
 
-        if (!hasBeenRemoved)
+        if (true)
         {
             if (glitchEffect != null)
             {

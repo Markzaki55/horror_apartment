@@ -8,15 +8,7 @@ public class Teleport : MonoBehaviour
 
     [SerializeField] private Transform[] teleportTargets = null;
     [SerializeField] private DisappearOnLook objectDisappearing = null;
-    private Camera maincam;
-    /// <summary>
-    /// Start is called on the frame when a script is enabled just before
-    /// any of the Update methods is called the first time.
-    /// </summary>
-    private void Start()
-    {
-        maincam = Camera.main;
-    }
+
     private void Awake()
     {
         instance= this;
@@ -31,6 +23,11 @@ public class Teleport : MonoBehaviour
         }
 
         int randomIndex = Random.Range(0, teleportTargets.Length);
+        while(randomIndex == randomIndexBuffer)
+        {
+            randomIndex = Random.Range(0, teleportTargets.Length);
+        }
+        randomIndexBuffer = randomIndex;
 
         Transform teleportTarget = teleportTargets[randomIndex];
         Vector3 newPosition = teleportTarget.position;
