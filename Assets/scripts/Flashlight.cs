@@ -1,37 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class Flashlight : MonoBehaviour, IPickupable
+public class Flashlight : MonoBehaviour
 {
-    public Light flashlightLight;
+    [SerializeField]private TextMeshProUGUI flashtext;
+    [SerializeField] private Light flashlight;
+    private bool isOn ;
+    private PickupableObject pickableObject;
 
-    private bool isOn = false;
-
-    void Start()
+    private void Start()
     {
-        flashlightLight.enabled = false;
+        
+        flashlight.enabled = false;
+        pickableObject = GetComponent<PickupableObject>();
     }
 
-    public void OnPickup()
+    private void Update()
     {
-        if (isOn)
+        flashtext.gameObject.SetActive(false);
+
+       
+        if (pickableObject && pickableObject.isHeld)
         {
-            flashlightLight.enabled = true;
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                flashtext.gameObject.SetActive(false);
+                isOn = !isOn;
+                flashlight.enabled = isOn;
+            }
         }
-    }
-
-    public void OnDrop()
-    {
-        flashlightLight.enabled = false;
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
+        else
         {
-            isOn = !isOn;
-            flashlightLight.enabled = isOn;
+            
+           
+            isOn = false;
+            flashlight.enabled = false;
+        }
+        if(isOn)
+        {
+            flashtext.gameObject.SetActive(false);
+
+        }else if(!isOn && pickableObject.isHeld){
+            flashtext.gameObject.SetActive(true);
         }
     }
 }

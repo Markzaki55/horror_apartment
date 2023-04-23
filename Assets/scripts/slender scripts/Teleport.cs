@@ -8,7 +8,15 @@ public class Teleport : MonoBehaviour
 
     [SerializeField] private Transform[] teleportTargets = null;
     [SerializeField] private DisappearOnLook objectDisappearing = null;
-
+    private Camera maincam;
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
+    private void Start()
+    {
+        maincam = Camera.main;
+    }
     private void Awake()
     {
         instance= this;
@@ -28,7 +36,7 @@ public class Teleport : MonoBehaviour
         Vector3 newPosition = teleportTarget.position;
 
         transform.position = newPosition;
-        transform.LookAt(Camera.main.transform);
+        transform.LookAt(maincam.transform);
 
         if (objectDisappearing != null)
         {

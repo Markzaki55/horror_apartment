@@ -4,36 +4,34 @@ using UnityEngine;
 
 public class LightSwitch : MonoBehaviour
 {
-    public List<Light> allLights = new List<Light>();
+    public List<GameObject> lightObjects = new List<GameObject>();
+    public bool cutTheLight = false;
 
-    private void Start()
+    public void SetLightsInactive()
     {
-        // Find all the light objects in the scene and add them to the list
-        foreach (GameObject obj in UnityEngine.SceneManagement.SceneManager.GetActiveScene().GetRootGameObjects())
+        foreach (GameObject lightObject in lightObjects)
         {
-            foreach (Light light in obj.GetComponentsInChildren<Light>())
-            {
-                allLights.Add(light);
-            }
-        }
-
-        // Turn off all the lights in the scene
-        //TurnOffAllLights();
-    }
-
-    public void TurnOffAllLights()
-    {
-        foreach (Light light in allLights)
-        {
-            light.gameObject.SetActive(false);
+            lightObject.SetActive(false);
         }
     }
 
-    public void TurnOnAllLights()
+    public void SetLightsActive()
     {
-        foreach (Light light in allLights)
+        foreach (GameObject lightObject in lightObjects)
         {
-            light.gameObject.SetActive(true);
+            lightObject.SetActive(true);
+        }
+    }
+
+    private void Update()
+    {
+        if (cutTheLight)
+        {
+            SetLightsInactive();
+        }
+        else
+        {
+            SetLightsActive();
         }
     }
 }

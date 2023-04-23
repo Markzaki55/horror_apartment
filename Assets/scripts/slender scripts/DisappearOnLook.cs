@@ -224,8 +224,18 @@ public class DisappearOnLook : MonoBehaviour
     private Coroutine disappearCoroutine = null;
     private bool isLooking = false;
     private bool hasBeenRemoved = false;
+    private Camera maincam;
 
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
+    private void Start()
+    {
+        maincam= Camera.main;
+    }
     private void Update()
+
     {
         CheckIfLooking();
 
@@ -243,7 +253,7 @@ public class DisappearOnLook : MonoBehaviour
 
     public void CheckIfLooking()
     {
-        Vector3 cameraPosition = Camera.main.transform.position;
+        Vector3 cameraPosition = maincam.transform.position;
         Vector3 toObject = transform.position - cameraPosition;
         float distanceToObject = toObject.magnitude;
 
