@@ -20,12 +20,17 @@ public class Flashlight : MonoBehaviour
     private void Update()
     {
         flashtext.gameObject.SetActive(false);
+        if (Input.GetKeyDown(KeyCode.F)&&pickableObject.isHeld )
+        {
+            SoundManager.PlaySound("click");
+        }
 
        
         if (pickableObject && pickableObject.isHeld)
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
+                
                 flashtext.gameObject.SetActive(false);
                 isOn = !isOn;
                 flashlight.enabled = isOn;
@@ -33,16 +38,19 @@ public class Flashlight : MonoBehaviour
         }
         else
         {
+            ;
             
            
             isOn = false;
             flashlight.enabled = false;
         }
-        if(isOn)
+        if(isOn && pickableObject.isHeld)
         {
+            
             flashtext.gameObject.SetActive(false);
 
         }else if(!isOn && pickableObject.isHeld){
+            
             flashtext.gameObject.SetActive(true);
         }
     }
