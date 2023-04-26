@@ -2,47 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class FlickerLights : MonoBehaviour
+public class FlickeringLights : MonoBehaviour
 {
-    public float minIntensity = 0.5f;
-    public float maxIntensity = 1f;
-    public Color color = Color.white;
 
-    private Light[] _lights;
-    private bool _isFlickering;
+    // by mistake i made it a flickering script LOL
 
-    private void Start()
+
+    public List<GameObject> lightObjects = new List<GameObject>();
+    public bool areLightsOn = true;
+    public bool iswork;
+
+
+    public void ToggleLights()
     {
-        _lights = GetComponentsInChildren<Light>();
+        areLightsOn = !areLightsOn;
+        foreach (GameObject lightObject in lightObjects)
+        {
+            lightObject.SetActive(areLightsOn);
+        }
     }
 
     private void Update()
     {
-        if (!_isFlickering)
+        // Check for input to toggle lights
+        if (iswork)
         {
-            StartCoroutine(Flicker(Random.Range(0.1f, 0.5f)));
+            ToggleLights();
+            Destroy(gameObject, 6);
         }
-    }
-
-    private IEnumerator Flicker(float duration)
-    {
-        _isFlickering = true;
-
-        foreach (var light in _lights)
-        {
-            light.intensity = Random.Range(minIntensity, maxIntensity);
-            light.color = color;
-        }
-
-        yield return new WaitForSeconds(duration);
-
-        foreach (var light in _lights)
-        {
-            light.intensity = 1f;
-            light.color = Color.white;
-        }
-
-        _isFlickering = false;
     }
 }

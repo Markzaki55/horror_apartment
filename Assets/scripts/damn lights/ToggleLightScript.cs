@@ -1,16 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class ToggleLightScript : MonoBehaviour
 {
     public List<Light> lightObjects;
+    [SerializeField]private TextMeshProUGUI thetext;
     public Light flashlightred;
-    private bool lightsOn = true;
+    [SerializeField] private bool lightsOn = false;
     private int collisionCount = 0;
 
+
+private void OnDestroy()
+{
+    thetext.gameObject.SetActive(false);
+}
     private void OnTriggerEnter(Collider other)
     {
+        
         if (other.gameObject.CompareTag("Player"))
         {
             SoundManager.PlaySound("click");
@@ -19,13 +26,18 @@ public class ToggleLightScript : MonoBehaviour
                 lightObject.gameObject.SetActive(lightsOn);
             }
             flashlightred.gameObject.SetActive(!lightsOn);
+            SoundManager.PlaySound("shock");
+            thetext.text="what the fuck is HAPPINING!!!!";
+            thetext.gameObject.SetActive(true);
+
             lightsOn = !lightsOn;
             collisionCount++;
 
-            if (collisionCount >= 2)
+            if (collisionCount >= 1)
             {
-                Destroy(gameObject);
+                Destroy(gameObject,2);
             }
+           
         }
     }
 }

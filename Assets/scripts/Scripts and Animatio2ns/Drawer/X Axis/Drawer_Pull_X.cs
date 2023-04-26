@@ -32,6 +32,7 @@ namespace SojaExiles
 
 		IEnumerator opening()
 		{
+			SoundManager.PlaySound("drawer");
 			print("you are opening the door");
 			pull_01.Play("openpull_01");
 			open = true;
@@ -40,7 +41,8 @@ namespace SojaExiles
 
 		IEnumerator closing()
 		{
-			print("you are closing the door");
+            SoundManager.PlaySound("drawer");
+            print("you are closing the door");
 			pull_01.Play("closepush_01");
 			open = false;
 			yield return new WaitForSeconds(.5f);
