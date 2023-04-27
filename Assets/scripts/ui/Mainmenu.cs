@@ -5,6 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class Mainmenu : MonoBehaviour
 {
+
+
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+    }
     // Start is called before the first frame update
    public void Playgame()
     {

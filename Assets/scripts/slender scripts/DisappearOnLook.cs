@@ -343,8 +343,9 @@ public class DisappearOnLook : MonoBehaviour
     float randDance = Random.Range(0f, 1f);
     if (randDance <= LoseChance)
     {
+         Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("slender dance");
-        Cursor.lockState = CursorLockMode.None;
+       
     }
  Teleport.instance.TeleportToRandomTarget();
 

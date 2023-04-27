@@ -11,7 +11,7 @@ private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            thetext.text = "When you open the window, right-click to focus.";
+            thetext.text = " right-click to focus on it.";
             
             thetext.gameObject.SetActive(true);
             Destroy(gameObject,2.5f

@@ -29,6 +29,7 @@ public class jumpscarmonster : MonoBehaviour
             timeSinceCollision += Time.deltaTime;
             if (timeSinceCollision >= delayBeforeNextScene)
             {
+                Cursor.lockState = CursorLockMode.None;
                 SceneManager.LoadScene(nextSceneName);
             }
         }
