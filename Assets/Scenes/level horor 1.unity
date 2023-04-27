@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 0.88
+  m_AmbientIntensity: 0.23
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 05c26a65b475f424bb8d1e5f19313437, type: 2}
@@ -443,6 +443,7 @@ GameObject:
   m_Component:
   - component: {fileID: 98306369}
   - component: {fileID: 98306368}
+  - component: {fileID: 98306370}
   m_Layer: 0
   m_Name: flickering light  // colider
   m_TagString: Untagged
@@ -465,13 +466,13 @@ MonoBehaviour:
   lightObjects:
   - {fileID: 1309485724}
   - {fileID: 1587506826}
-  - {fileID: 0}
+  - {fileID: 1587506824}
   - {fileID: 1587506816}
   - {fileID: 1587506815}
   - {fileID: 1587506825}
   - {fileID: 1587506824}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 216148445}
+  - {fileID: 1587506817}
   - {fileID: 1587506823}
   - {fileID: 1587506822}
   - {fileID: 1587506821}
@@ -488,14 +489,27 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 98306367}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.206032, y: 2.3454227, z: -0.53554344}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: -0.27102047, z: 0, w: 0.96257365}
+  m_LocalPosition: {x: -1.33, y: 0.8, z: 7.04}
+  m_LocalScale: {x: 1, y: 2.11, z: 2.09}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 17
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -31.45, z: 0}
+--- !u!65 &98306370
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98306367}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &112556028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1724,6 +1738,50 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &393485162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 393485163}
+  - component: {fileID: 393485164}
+  m_Layer: 0
+  m_Name: doorknock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &393485163
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393485162}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.6647832, y: 0.12667108, z: 6.0961094}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 29
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &393485164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393485162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: badb776da9f9df4429e0371875df4958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &401441271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6663,7 +6721,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1144546515}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.575, y: 0.147, z: 1.772}
+  m_LocalPosition: {x: -3.651, y: -0.296, z: 1.772}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10259,7 +10317,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1833359186}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.798, y: -0.754, z: 1.951}
+  m_LocalPosition: {x: -2.798, y: -0.303, z: 1.802}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19297,6 +19355,9 @@ MonoBehaviour:
   lookTime: 2
   maxDistance: 17.38
   glitchEffect: {fileID: 832575517}
+  collisionChance: 0.35
+  collisionSpeed: 5
+  playerTransform: {fileID: 4459864849967029520}
 --- !u!114 &8062376035908213573
 MonoBehaviour:
   m_ObjectHideFlags: 0

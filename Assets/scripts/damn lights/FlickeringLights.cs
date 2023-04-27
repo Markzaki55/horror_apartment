@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class FlickeringLights : MonoBehaviour
 {
-
-    // by mistake i made it a flickering script LOL
-
-
     public List<GameObject> lightObjects = new List<GameObject>();
     public bool areLightsOn = true;
     public bool iswork;
-
 
     public void ToggleLights()
     {
@@ -19,6 +14,20 @@ public class FlickeringLights : MonoBehaviour
         foreach (GameObject lightObject in lightObjects)
         {
             lightObject.SetActive(areLightsOn);
+        }
+
+        if (areLightsOn)
+        {
+            StartCoroutine(TurnOffLightsAfterDelay(6f));
+        }
+    }
+
+    private IEnumerator TurnOffLightsAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        foreach (GameObject lightObject in lightObjects)
+        {
+            lightObject.SetActive(false);
         }
     }
 
@@ -29,6 +38,14 @@ public class FlickeringLights : MonoBehaviour
         {
             ToggleLights();
             Destroy(gameObject, 6);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            iswork = true;
         }
     }
 }
