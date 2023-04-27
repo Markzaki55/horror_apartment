@@ -27,9 +27,16 @@ public class PlayerInteraction : MonoBehaviour
 
             iintracatable interactable = hit.collider.GetComponent<iintracatable>();
             if (interactable != null)
-            {
-                 interactText.gameObject.SetActive(true); 
-                 interactText.text = "Press E to interact"; 
+            {  if (interactable.GetType() == typeof(ReadNotes))
+                {
+                    interactText.gameObject.SetActive(true); 
+                    interactText.text = "Press E to pick the note"; 
+                }
+                else
+                {
+                    interactText.gameObject.SetActive(true); 
+                    interactText.text = "Press E to interact"; 
+                }
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     interactable.Interact();

@@ -1,6 +1,4 @@
 
-
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,12 +8,10 @@ public class DisappearOnLook : MonoBehaviour
     [SerializeField] private float lookTime = 2f;
     [SerializeField] private float maxDistance = 10f;
     [SerializeField] private GameObject glitchEffect = null;
-
     private Coroutine disappearCoroutine = null;
     private bool isLooking = false;
     private bool hasBeenRemoved = false;
     private Camera maincam;
-
     private bool hasExcuted = false;
 
 
@@ -27,7 +23,6 @@ public class DisappearOnLook : MonoBehaviour
 
     {
         CheckIfLooking();
-
 
         if (!hasExcuted)
         {
@@ -47,8 +42,6 @@ public class DisappearOnLook : MonoBehaviour
 
             }
         }
-
-
 
         if (disappearCoroutine == null)
         {
@@ -99,7 +92,7 @@ public class DisappearOnLook : MonoBehaviour
                 glitchEffect.SetActive(false);
             }
 
-            //gameObject.SetActive(false);
+           
             Teleport.instance.TeleportToRandomTarget();
 
             hasBeenRemoved = true;

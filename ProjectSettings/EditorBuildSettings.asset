@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/main menu.unity
+    guid: 2a1340023f0a940489e13d919ce46d63
+  - enabled: 1
     path: Assets/Scenes/level horor 1.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/slender dance.unity
+    guid: c7c0629606212e043b90ba25340cc303
+  - enabled: 1
+    path: Assets/Scenes/slender lost.unity
+    guid: f61b72caa8361ab4a93ae61bc227a8bb
   m_configObjects: {}

@@ -32,6 +32,9 @@ public class destroyredlight : MonoBehaviour
    
     private void OnDestroy()
     {
+        if(thetext !=null)
+        {
         thetext.gameObject.SetActive(false);
+        }
             }
 }

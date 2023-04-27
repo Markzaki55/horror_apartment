@@ -12,8 +12,10 @@ public class ToggleLightScript : MonoBehaviour
 
 
 private void OnDestroy()
+{if(thetext !=null)
 {
     thetext.gameObject.SetActive(false);
+}
 }
     private void OnTriggerEnter(Collider other)
     {
