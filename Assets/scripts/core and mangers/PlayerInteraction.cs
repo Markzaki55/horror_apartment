@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class PlayerInteraction : MonoBehaviour
@@ -18,6 +19,12 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("main menu");
+        }
+
+        
 
         Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
