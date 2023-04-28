@@ -40,6 +40,8 @@ public class SlenderJumpScare : MonoBehaviour
         yield return new WaitForSeconds(jumpScareSoundEffect.length);
 
         yield return new WaitForSeconds(4f);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         SceneManager.LoadScene(nextSceneName);
     }
 }

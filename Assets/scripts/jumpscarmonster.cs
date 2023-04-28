@@ -30,6 +30,7 @@ public class jumpscarmonster : MonoBehaviour
             if (timeSinceCollision >= delayBeforeNextScene)
             {
                 Cursor.lockState = CursorLockMode.None;
+                Cursor.visible= true;
                 SceneManager.LoadScene(nextSceneName);
             }
         }

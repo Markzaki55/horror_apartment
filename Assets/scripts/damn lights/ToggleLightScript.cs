@@ -22,6 +22,7 @@ private void OnDestroy()
         
         if (other.gameObject.CompareTag("Player"))
         {
+            Teleport.instance.TeleportToRandomTarget();
             SoundManager.PlaySound("click");
             foreach (Light lightObject in lightObjects)
             {

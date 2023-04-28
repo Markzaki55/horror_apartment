@@ -40,6 +40,7 @@ public class papercounter : MonoBehaviour
 {
     yield return new WaitForSeconds(waitTime);
 
+  Cursor.visible= true;
     Cursor.lockState = CursorLockMode.None;
     SceneManager.LoadScene("slender lost");
 }

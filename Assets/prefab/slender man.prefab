@@ -258,8 +258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd351527b6e1fa24cb65789eb062bce8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  detectionDistance: 10
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 128
+  speed: 9
+  nextSceneName: slender dance
+  delayBeforeNextScene: 1.4

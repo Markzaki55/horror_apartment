@@ -167,7 +167,7 @@ public class DisappearOnLook : MonoBehaviour
     private bool isLooking = false;
     private bool hasBeenRemoved = false;
     private Camera maincam;
-    private bool hasExcuted = false;
+    private bool hasExcuted = true;
 
 
     private void Start()
@@ -179,16 +179,16 @@ public class DisappearOnLook : MonoBehaviour
     {
         CheckIfLooking();
 
-        if (!hasExcuted)
-        {
-            if (!isLooking || !Input.GetMouseButton(1))
-            {
-                StopDisappearing();
-                return;
-            }
-            hasExcuted = true;
+        // if (!hasExcuted)
+        // {
+        //     if (!isLooking || !Input.GetMouseButton(1))
+        //     {
+        //         StopDisappearing();
+        //         return;
+        //     }
+        //     hasExcuted = true;
 
-        }
+        // }
         if(hasExcuted){
             if(!isLooking)
             {
@@ -246,7 +246,7 @@ public class DisappearOnLook : MonoBehaviour
 
      if (shouldCollide)
     {
-        // Move monster towards player position
+       
         Vector3 direction = (playerTransform.position - transform.position).normalized;
         SoundManager.PlaySound("jumpscare1");
         while (Vector3.Distance(transform.position, playerTransform.position) > 0.1f)
@@ -344,6 +344,7 @@ public class DisappearOnLook : MonoBehaviour
     if (randDance <= LoseChance)
     {
          Cursor.lockState = CursorLockMode.None;
+         Cursor.visible = true;
         SceneManager.LoadScene("slender dance");
        
     }

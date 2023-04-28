@@ -14,6 +14,7 @@ public class Mainmenu : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.None;
+          Cursor.visible= true;
     }
     // Start is called before the first frame update
    public void Playgame()
@@ -22,6 +23,8 @@ public class Mainmenu : MonoBehaviour
     }
     public void gomainmenu()
     {
+        Cursor.lockState = CursorLockMode.None;
+          Cursor.visible= true;
         SceneManager.LoadScene(0);
     }
     public void quitgame()
