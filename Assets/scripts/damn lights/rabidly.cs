@@ -5,10 +5,9 @@ using UnityEngine;
 
 public class rabidly : MonoBehaviour
 {
-    public float interactionInterval = 0.3f; // the time interval between each interaction
-    public float duration = 6.0f; // the duration of the horror moment
-
-    public bool testHorrorMoment = false; // a bool to trigger the horror moment for testing
+    public float interactionInterval = 0.3f; 
+    public float duration = 6.0f; 
+    public bool testHorrorMoment = false; 
 
     private float timer = 0.0f;
     private bool isInteracting = false;
@@ -29,7 +28,7 @@ public class rabidly : MonoBehaviour
         if (testHorrorMoment)
         {
             StartHorrorMoment();
-            testHorrorMoment = false; // reset the bool after triggering the horror moment
+            testHorrorMoment = false; 
         }
 
         if (isInteracting)
@@ -43,7 +42,7 @@ public class rabidly : MonoBehaviour
 
             if (timer % interactionInterval < Time.deltaTime)
             {
-                // call the Interact function on all objects with a component implementing the IInteractable interface
+                
               iintracatable[] interactables = FindObjectsOfType<MonoBehaviour>().OfType<iintracatable>().ToArray();
 
                 foreach (iintracatable interactable in interactables)

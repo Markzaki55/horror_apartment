@@ -70,7 +70,9 @@
 //         Gizmos.color = Color.yellow;
 //         Gizmos.DrawRay(transform.position, transform.forward * pickupDistance);
 //     }
-// }
+// }  
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -114,6 +116,35 @@ public class Playerpicksystem : MonoBehaviour
             }
         }
     }
+
+
+
+    // for android
+    // public void HandlePickup()
+    // {
+
+    //         if (heldObject == null)
+    //         {
+    //             hits = Physics.OverlapBox(transform.position + transform.forward * pickupDistance / 2f, raycastSize / 2f, transform.rotation, pickupLayer);
+    //             if (hits.Length > 0)
+    //             {
+    //                 heldObject = hits[0].gameObject.GetComponent<IPickupable>();
+    //                 if (heldObject != null)
+    //                 {
+    //                     heldObject.OnPickup();
+    //                 }
+    //             }
+    //         }
+    //         else
+    //         {
+    //             heldObject.OnDrop();
+    //             heldObject = null;
+    //         }
+        
+    // }
+
+
+
 
     private void HandlePickupText()
     {
